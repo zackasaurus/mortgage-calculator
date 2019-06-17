@@ -1,13 +1,44 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #eceff1;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+h1 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
 }
+
+p {
+  font-size: .8rem;
+}
+
+.header-container {
+  position: relative;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+  height: 60vh;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#00bcd4), to(#2196f3));
+  background-image: linear-gradient(to right bottom, #00bcd4, #2196f3);
+  background-size: cover;
+  background-position: top;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 100%);
+          clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 100%);
+  text-transform: uppercase;
+}
+
+.output__list {
+  position: relative;
+  margin-top: -50vh;
+  background-color: #fafafa;
+  z-index: 10;
+}
+
+.input__list {
+  background-color: #fafafa;
+}
+/*# sourceMappingURL=index.css.map */

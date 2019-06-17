@@ -1,0 +1,58 @@
+// COLORS
+$primary_1 : #00bcd4;
+$primary_2 : #2196f3;
+
+body{
+    background-color: #eceff1;
+}
+h1 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+p {
+    font-size: .8rem;
+}
+
+.header-container {
+    position: relative;
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+    height: 60vh;
+    background-image: linear-gradient(to right bottom,$primary_1, $primary_2);
+    background-size: cover;
+    background-position: top;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 100%);
+    
+    // width: 100%;
+    text-transform: uppercase;
+    
+    
+}
+
+.output__list {
+    position: relative;
+    margin-top: -50vh;
+    background-color: #fafafa;
+    
+    z-index: 10;
+}
+.input__list {
+    background-color: #fafafa;
+
+}
+
+.chart {
+    // height: 200px;
+}
+.row > div {
+    // padding: .2rem;
+    // background: #ddd;
+    // border: 1px solid #000;
+    // line-height: 2rem;
+}

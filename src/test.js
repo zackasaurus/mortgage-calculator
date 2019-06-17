@@ -20,7 +20,7 @@ let inputList = [
 
 // console.log(inputList[3 - 1].suffix === undefined)
 
-inputList[1].value = 240000;
+inputList[2].value = inputList[0].value - inputList[1].value;
 
 console.log(inputList)
 
