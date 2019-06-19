@@ -4,12 +4,15 @@
   "private": true,
   "dependencies": {
     "chart.js": "^2.8.0",
+    "chartjs-plugin-zoom": "^0.7.0",
+    "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-chartjs-2": "^2.7.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
   },
   "scripts": {
+    "scss": "node-sass --watch src/scss/index.scss -o src",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

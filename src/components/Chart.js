@@ -15,8 +15,24 @@ export default class Chart extends Component {
             <div className="chart">
                 {/* CHART COMPONENT */}
                 <Bar
+                    
+                    height={null} width={null}
                     data={this.props.data}
+                    
                     options={{
+                        responsive: true,
+                        
+                        maintainAspectRatio: true,
+                        aspectRatio: 1,
+                        scales: {
+                            xAxes: [{
+                                barPercentage:  1,
+                                stacked: true
+                            }],
+                            yAxes: [{
+                                stacked: true
+                            }]
+                        },
 
                         title: {
                             display: true,
@@ -27,10 +43,24 @@ export default class Chart extends Component {
                         legend: {
                             labels: {
                                 defaultFontFamily: 'Roboto'
+
                             },
-                            
-                            display:true,
+
+                            display: true,
                             position: 'top'
+                        },
+                        plugins: {
+                            zoom: {
+                                pan: {
+                                    enabled: true,
+                                    mode: 'xy' // is panning about the y axis neccessary for bar charts?
+                                },
+                                zoom: {
+                                    enabled: true,
+                                    mode: 'x',
+                                    sensitivity: 3
+                                }
+                            }
                         }
                     }}
                 />

@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
-import Inputs from './Inputs';
-import Header from './Header'
+
+import Inputs from './components/Inputs';
+import Header from './components/Header'
 // import './App.css';
 
 

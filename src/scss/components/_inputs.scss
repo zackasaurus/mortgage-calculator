@@ -1,0 +1,124 @@
+.input-container {
+    // overflow: hidden;
+    // border: 1px solid black;
+    margin:1rem 0rem;
+    // padding: 1rem;
+    label {
+        // font-size: 50%;
+        display: inline-block;
+        // border: 1px solid blue;
+        margin: .5rem 0rem;
+        color: $primary-1;
+        // text-transform: uppercase;
+    }
+
+    .input-group {
+        margin: 0;
+        padding: 0;
+        height: 2rem;
+        display: flex;
+        border: none;
+        // white-space: nowrap;
+        // white-space: nowrap;
+        // flex-wrap:wrap;
+        // vertical-align: center;
+
+        &>* {
+            font-family: 'Roboto';
+            font-weight: 300;
+            margin: 0;
+            outline: none;
+            border: none;
+            // white-space: nowrap;
+        }
+
+        &>p {
+            
+            order: 0;
+            
+            // display: inline-block;
+            white-space: nowrap;
+           
+            margin: 0px;
+            padding: 0px;
+            line-height: 1rem;
+            font-size: 80%;
+            // border: 1px solid black;
+            // margin: auto;
+            padding:  0.5rem .5rem;
+            // text-align: center;
+            // font-size: 90%;
+            background-color: rgb(180,180,180);
+            color: white;
+           
+            &.prefix{
+                order: 0
+            }
+            &.suffix{
+                // white-space: nowrap;
+                order: 1;
+            }
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+            /* Firefox */
+        }
+
+        &>input[type=number] {
+            // flex: 1;
+            // order: 0;
+            background-color: lightgray;
+            border: none;
+            border-bottom: none;
+            border-top: none;
+            outline: none;
+            height: 2rem;
+            // line-height: 100px;
+            text-align: left;
+            text-justify: inter-word;
+            vertical-align: middle;
+            // baseline: baseline;
+
+            width: 100%;
+            font-size: 90%;
+            margin: auto;
+            padding: 0 1rem;
+            box-shadow: none;
+            box-sizing: border-box;
+            transition: all .3s;
+            
+            
+
+            // border: 1px solid black;
+            // border-bottom: none;
+            &:focus,
+            &:active {
+
+                border-bottom: none;
+                box-shadow: none;
+                outline: none;
+            }
+        }
+        
+
+
+    }
+    .input-animation{
+        margin: 0;
+        padding: 0;
+        width: 0%;
+        border-bottom: 4px solid $primary-1;
+        transform: translateX(0%);
+        transition: all 0.2s ease;   
+    }
+    .input-group:focus-within ~ .input-animation {
+        width: 100%;
+    }
+}
