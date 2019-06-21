@@ -1,14 +1,24 @@
 .input-container {
     // overflow: hidden;
     // border: 1px solid black;
-    margin:1rem 0rem;
-    // padding: 1rem;
+    // margin:1rem 0rem;
+    // padding:
+    // height: 4rem;
+    // height: max-content;
+    // margin: 1rem 0;
+    // padding: 1rem 0;
+    // overflow: auto;
+    // border: 1px solid black;
+    // height: max-content;
     label {
         // font-size: 50%;
         display: inline-block;
+        font-size: 80%;
+        font-family: 'Roboto';
+        font-weight: 100;
         // border: 1px solid blue;
-        margin: .5rem 0rem;
-        color: $primary-1;
+        margin-bottom: 0.5rem;
+        color: $color-black-1;
         // text-transform: uppercase;
     }
 
@@ -17,6 +27,12 @@
         padding: 0;
         height: 2rem;
         display: flex;
+        flex-direction: row;
+        // flex: 1;
+        // align-items: stretch;
+        // flex-wrap: wrap;
+        // height: max-content;
+        // width: max-content;
         border: none;
         // white-space: nowrap;
         // white-space: nowrap;
@@ -83,7 +99,7 @@
             // line-height: 100px;
             text-align: left;
             text-justify: inter-word;
-            vertical-align: middle;
+            // vertical-align: middle;
             // baseline: baseline;
 
             width: 100%;
@@ -114,7 +130,7 @@
         margin: 0;
         padding: 0;
         width: 0%;
-        border-bottom: 4px solid $primary-1;
+        border-bottom: 4px solid $color-primary-1;
         transform: translateX(0%);
         transition: all 0.2s ease;   
     }

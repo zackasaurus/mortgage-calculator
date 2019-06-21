@@ -1,0 +1,45 @@
+.section-a{
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+// overflow: hidden;
+min-width: 0;
+margin-bottom: 2rem;
+padding: 1rem 0rem;
+}
+.chart-container{
+    
+    // height: 100%;
+    // width: 100%;
+    overflow: hidden;
+    min-width: 0;
+    padding: .75rem;
+    // border: 1px solid black;
+    .chart {
+        position: relative;
+        padding: 0rem;
+        margin: 0rem;
+        overflow: hidden;
+        min-width: 0;
+    }  
+}
+.outputs{
+    // background-color: $color-gray-2;
+    padding: 1.5rem .75rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    // grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-auto-rows: minmax(min-content, max-content);
+    grid-gap: 1.5rem;
+    // margin: 5
+    // border: 1px solid black;
+}
+.box-1{
+    // border: 1px solid black;
+    grid-column: 1/3;
+}
+// .col, .xl6{
+//     padding: 0rem;
+// }
+.row .col{
+    padding: .75rem;
+}

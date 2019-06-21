@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Calculate from './Calculate'
 // import "../index.css"
-import Chart from './Chart'
+// import Chart from './Chart'
 let inputList = [
     { id: 0, name: 'Home Sale Price', value: 300000, step: 10000, prefix: '$' },
     { id: 1, name: 'Down Payment', type: 'number', value: 3.5, step: 1, suffix: '%' },
@@ -55,8 +55,8 @@ export default class Inputs extends Component {
                 <div className="col s12 m6 l4 xl3 input-container" key={input.id}>
                     <label htmlFor="">{input.name}</label>
                     <div className="input-group">
-                        {input.prefix === undefined ? null : <p class="prefix" htmlFor="">{input.prefix}</p>}
-                        {input.suffix === undefined ? null : <p class="suffix" htmlFor="">{input.suffix}</p>}
+                        {input.prefix === undefined ? null : <p className="prefix" htmlFor="">{input.prefix}</p>}
+                        {input.suffix === undefined ? null : <p className="suffix" htmlFor="">{input.suffix}</p>}
 
                         <input onChange={this.handleInputChange} value={input.value} id={input.id} type="number" step={input.step}></input>
 
