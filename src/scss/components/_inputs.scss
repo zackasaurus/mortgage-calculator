@@ -43,6 +43,7 @@
         // vertical-align: center;
         border-bottom: none;
         // border: 1px solid $color-silver-3;
+        background-color: #fafafa;
 
         &>* {
             font-family: 'Roboto';
@@ -132,7 +133,7 @@
             &:active {
                 // transform: translateY(1.25);
                 // outline-offset: 0;
-                background: $color-silver-1;
+                background: $color-primary-5;
                 border: 1px solid $color-silver-3;
                 box-shadow: none;
                 outline: none;

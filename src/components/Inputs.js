@@ -94,11 +94,11 @@ export default class Inputs extends Component {
                         <div className="inputs">
                             {inputs}
                         </div>
-                        <div className="btn-group">
+                        {/* <div className="btn-group">
                             <button onClick={this.handleClick}>Submit</button>
                             <button onClick={this.handleClick}>Save</button>
                             <button onClick={this.handleClick}>Compare</button>
-                        </div>
+                        </div> */}
 
                     </div>
 

@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   height: 60vh;
-  background-image: linear-gradient(to right bottom, #00bcd4, #2196f3);
+  background-image: linear-gradient(to right bottom, #2980B9, #85C1E9);
   background-size: cover;
   background-position: top;
   clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 100%);
@@ -42,7 +42,8 @@
   display: flex;
   flex-direction: row;
   border: none;
-  border-bottom: none; }
+  border-bottom: none;
+  background-color: #fafafa; }
   .input-container .input-group > * {
     font-family: 'Roboto';
     font-weight: 300;
@@ -87,7 +88,7 @@
     box-sizing: border-box;
     transition: all .3s; }
     .input-container .input-group > input[type=number]:focus, .input-container .input-group > input[type=number]:active {
-      background: #F2F3F4;
+      background: #EBF5FB;
       border: 1px solid #BDC3C7;
       box-shadow: none;
       outline: none; }
@@ -112,7 +113,7 @@
   margin: 0px 0px;
   padding: 0;
   width: 0%;
-  border-bottom: 4px solid #00bcd4;
+  border-bottom: 4px solid #2980B9;
   transition: all 0.2s ease; }
 
 .input-container .input-group:focus-within ~ .input-animation {
@@ -122,15 +123,25 @@
   margin: 0 0; }
 
 button {
-  background: #D7DBDD;
   display: inline-block;
   color: #000;
   text-decoration: none;
   padding: 0.5rem 1rem;
   margin: 1.5rem 1.5rem 0 0;
-  border: none; }
+  border: 1px solid #BDC3C7;
+  background: #F2F3F4; }
   button:hover {
-    background: #00bcd4; }
+    background: #2980B9;
+    transition: 0.3s all; }
+    button:hover i {
+      color: white; }
+  button:active, button:active::after {
+    background: #2980B9;
+    transition: 0.3s all; }
+    button:active i, button:active::after i {
+      color: white; }
+  button i {
+    color: #2980B9; }
 
 .container-outputs {
   margin: 0 5%;
@@ -194,10 +205,10 @@ button {
   margin: 0 5%;
   padding: 0 4%;
   z-index: 10;
-  margin-bottom: 2rem;
-  background-color: #fafafa; }
+  background-color: #F2F3F4; }
 
 .section-b {
+  margin-bottom: 2rem;
   padding: 1.5rem .75rem; }
 
 .inputs {
@@ -228,18 +239,6 @@ button {
 body {
   background-color: #ebedef;
   font-family: 'Roboto'; }
-
-h1 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  font-size: 2rem;
-  font-weight: 200;
-  letter-spacing: 0.5rem;
-  vertical-align: baseline;
-  background: transparent; }
 
 h5 {
   font-size: 125%;
