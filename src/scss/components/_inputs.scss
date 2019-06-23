@@ -1,4 +1,5 @@
 .input-container {
+
     // overflow: hidden;
     // border: 1px solid black;
     // margin:1rem 0rem;
@@ -22,6 +23,7 @@
         // text-transform: uppercase;
     }
 
+
     .input-group {
         margin: 0;
         padding: 0;
@@ -34,10 +36,13 @@
         // height: max-content;
         // width: max-content;
         border: none;
+        // border: 1px solid black;
         // white-space: nowrap;
         // white-space: nowrap;
         // flex-wrap:wrap;
         // vertical-align: center;
+        border-bottom: none;
+        // border: 1px solid $color-silver-3;
 
         &>* {
             font-family: 'Roboto';
@@ -45,36 +50,42 @@
             margin: 0;
             outline: none;
             border: none;
+
             // white-space: nowrap;
         }
 
         &>p {
-            
+            // border-right: 1px solid black;
             order: 0;
-            
+            border: 1px solid $color-silver-3;
             // display: inline-block;
             white-space: nowrap;
-           
+
             margin: 0px;
             padding: 0px;
             line-height: 1rem;
             font-size: 80%;
             // border: 1px solid black;
             // margin: auto;
-            padding:  0.5rem .5rem;
+            padding: 0.5rem .5rem;
             // text-align: center;
             // font-size: 90%;
-            background-color: rgb(180,180,180);
-            color: white;
-           
-            &.prefix{
-                order: 0
+            // background-color: $color-silver-3;
+            color: black;
+
+            &.prefix {
+                order: 0;
+                border-right: 0;
             }
-            &.suffix{
+
+            &.suffix {
                 // white-space: nowrap;
+                border-left: 0;
                 order: 1;
             }
+
         }
+
 
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
@@ -90,10 +101,13 @@
         &>input[type=number] {
             // flex: 1;
             // order: 0;
-            background-color: lightgray;
-            border: none;
+            // background-color: $color-silver-2;
+            // overflow: auto;
             border-bottom: none;
-            border-top: none;
+            border: 1px solid $color-silver-3;
+            // border: 1px solid $color-silver-3;
+            // border-top: none;
+           
             outline: none;
             height: 2rem;
             // line-height: 100px;
@@ -109,32 +123,66 @@
             box-shadow: none;
             box-sizing: border-box;
             transition: all .3s;
-            
-            
+
+
 
             // border: 1px solid black;
             // border-bottom: none;
             &:focus,
             &:active {
-
-                border-bottom: none;
+                // transform: translateY(1.25);
+                // outline-offset: 0;
+                background: $color-silver-1;
+                border: 1px solid $color-silver-3;
                 box-shadow: none;
                 outline: none;
             }
         }
-        
+
 
 
     }
-    .input-animation{
-        margin: 0;
+
+    .readOnly {
+        border: none;
+        overflow: hidden;
+
+        // border: 1px solid $color-silver-4;
+        p {
+            background-color: $color-silver-3;
+            color: black;
+            border: none;
+        }
+
+        input[type=number] {
+            // color: blue;
+            border: none;
+            background-color: $color-silver-2;
+            &:focus,
+            &:active {
+                // transform: translateY(1.25);
+                // outline-offset: 0;
+                background: $color-silver-2;
+                // border: 1px solid $color-silver-3;
+                border: none;
+                box-shadow: none;
+                outline: none;
+            }
+        }
+
+
+    }
+
+    .input-animation {
+        margin: 0px 0px;
         padding: 0;
         width: 0%;
         border-bottom: 4px solid $color-primary-1;
-        transform: translateX(0%);
-        transition: all 0.2s ease;   
+        // transform: translateX(0%);
+        transition: all 0.2s ease;
     }
-    .input-group:focus-within ~ .input-animation {
+
+    .input-group:focus-within~.input-animation {
         width: 100%;
     }
 }

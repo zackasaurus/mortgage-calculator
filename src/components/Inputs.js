@@ -3,9 +3,9 @@ import Calculate from './Calculate'
 // import "../index.css"
 // import Chart from './Chart'
 let inputList = [
-    { id: 0, name: 'Home Sale Price', value: 300000, step: 10000, prefix: '$' },
+    { id: 0, name: 'Home Sale Price', value: 300000, step: 10000, prefix: '$', readOnly: false },
     { id: 1, name: 'Down Payment', type: 'number', value: 3.5, step: 1, suffix: '%' },
-    { id: 2, name: 'Loan Amount', prefix: '$' },
+    { id: 2, name: 'Loan Amount', prefix: '$', readOnly: true},
     { id: 3, name: 'Interest Rate', value: 4.25, step: 0.25, suffix: '% APR', range: true },
     { id: 4, name: 'Loan Term', value: 30, step: 1, suffix: 'years' },
     { id: 5, name: 'Start Date' },
@@ -17,7 +17,7 @@ let inputList = [
 ]
 inputList[2].value = inputList[0].value -
     (inputList[0].value * inputList[1].value / 100);
-const output = 1000
+// const output = 1000
 
 
 
@@ -51,14 +51,21 @@ export default class Inputs extends Component {
     }
     render() {
         let inputs = this.state.inputs.map(input => {
+            // Read Only
+            let inputGroup = "input-group"
+            if(input.readOnly){
+                inputGroup = "input-group readOnly"
+            }
             return (
+                
                 <div className="col s12 m6 l4 xl3 input-container" key={input.id}>
                     <label htmlFor="">{input.name}</label>
-                    <div className="input-group">
+                    <div className={inputGroup}>
+                    
                         {input.prefix === undefined ? null : <p className="prefix" htmlFor="">{input.prefix}</p>}
                         {input.suffix === undefined ? null : <p className="suffix" htmlFor="">{input.suffix}</p>}
 
-                        <input onChange={this.handleInputChange} value={input.value} id={input.id} type="number" step={input.step}></input>
+                        <input  onChange={this.handleInputChange} value={input.value} id={input.id} type="number" step={input.step}></input>
 
                     </div>
                     <div className="input-animation"></div>
@@ -82,19 +89,22 @@ export default class Inputs extends Component {
                 </div>
                 <div className="container-inputs input__list z-depth-1">
                     {/* INPUTS */}
-                    <div className=" ">
-                        <div className="row">
-                            {/* <h5>Inputs:</h5> */}
-                            <div className="container__inputs">
-                                {inputs}
-                            </div>
 
+                    <div className="section-b">
+                        <div className="inputs">
+                            {inputs}
                         </div>
+                        <div className="btn-group">
+                            <button onClick={this.handleClick}>Submit</button>
+                            <button onClick={this.handleClick}>Save</button>
+                            <button onClick={this.handleClick}>Compare</button>
+                        </div>
+
                     </div>
 
-                    <button onClick={this.handleClick}>Submit</button>
-                    <button onClick={this.handleClick}>Save</button>
-                    <button onClick={this.handleClick}>Compare</button>
+
+
+
                 </div>
             </div>
         )

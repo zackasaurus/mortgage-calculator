@@ -14,9 +14,25 @@
 
     .title {
         position: relative;
-        padding: 5vh 0;
+        padding: 5vh ;
         text-align: center;
         color: white;
+        
+        h1 {
+            margin: 0 0rem;
+            padding: 0;
+            border: 0;
+            // border: 1px solid white;
+            outline: 0;
+            font-size: 100%;
+            font-size: 1.5rem;
+            font-weight: 200;
+            letter-spacing: 0.5rem;
+            line-height: 2.7rem;
+            vertical-align: baseline;
+            background: transparent;
+            
+        }
     }
     
     

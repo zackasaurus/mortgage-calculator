@@ -1,8 +1,25 @@
 import React, { Component } from 'react'
-import Chart from './Chart'
-import "../index.css"
+import LineChart from './charts/LineChart'
+import DonutChart from './charts/DonutChart'
+
 
 export default class Calculate extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            chart: 'line',
+
+        }
+    }
+    handleClick = (e) => {
+
+        this.setState({
+            chart: e.target.id
+            
+        })
+        // console.log(e.target)
+    }
+
     render() {
         const colors = {
             turquoise: '#76D7C4',
@@ -58,6 +75,20 @@ export default class Calculate extends Component {
             ]
 
         }
+        let donutChartData = {
+            labels: ['Interest', 'Principal', "Property Taxes", "Home Insurance", "HOA", "PMI"],
+
+            datasets: [
+                {
+                    label: ['Interest', 'Principal', "Property Taxes", "Home Insurance", "HOA", "PMI"],
+                    backgroundColor: [colors.turquoise, colors.river, colors.amethyst, colors.alizarin, colors.orange, colors.asphalt],
+                    borderColor: [colors.turquoise, colors.river, colors.amethyst, colors.alizarin, colors.orange, colors.asphalt],
+                    // borderColor: colors.turquoise,
+                    data: [],
+                },
+            ]
+        }
+
         // Home Value
         let hv = this.props.data[0].value
         // dp - down payment
@@ -78,7 +109,7 @@ export default class Calculate extends Component {
         }
         // Monthly Tax Payments
         let tax = (this.props.data[6].value / 100 / c) * hv
-        let assessmentDuration = 1
+        // let assessmentDuration = 1
         let adjustor = 1
         let adjustedInflation = 1
         let adjustedTax = tax
@@ -92,16 +123,29 @@ export default class Calculate extends Component {
             pmi = 0
         }
         // HOA
-        let hoa = this.props.data[8].value
-        // Inflation Adjustor
-
-
+        let hoa = this.props.data[8].value / 1
+        // Total
         let total = payment + tax + homeInsurance + pmi + hoa
+        // Inflation Adjustor
+        let infAdjustor = 1 + (this.props.data[10].value / 100)
+
+        let adjustedHomeInsurance = homeInsurance
+        let adjustedHOA = hoa
+
+
         let balance = p
         let i = 0
         let mortgageTable = []
         let totalInterest = 0
         let totalPMI = 0
+
+        // Donut Chart
+        // donutChartData.datasets[0].data.push(payment)
+        // donutChartData.datasets[0].data.push(hoa)
+        // donutChartData.datasets[0].data.push(pmi)
+
+
+        // Calculate Table
         while (i < n) {
             let interest = balance * r
 
@@ -112,7 +156,10 @@ export default class Calculate extends Component {
 
             if (i % c === 0) {
 
-                adjustedInflation *= 1.03
+                adjustedInflation *= infAdjustor
+                adjustedHomeInsurance *= infAdjustor
+                adjustedHOA *= infAdjustor
+
                 // adjustedTax *= 1.03
                 if (i % (c * adjustor) === 0) {
                     // adjustedTax *= adjustedInflation
@@ -128,8 +175,16 @@ export default class Calculate extends Component {
             chartData.datasets[0].data.push(interest)
             chartData.datasets[1].data.push(principal)
             chartData.datasets[2].data.push(adjustedTax)
-            chartData.datasets[3].data.push(homeInsurance)
-            chartData.datasets[4].data.push(hoa)
+            chartData.datasets[3].data.push(adjustedHomeInsurance)
+            chartData.datasets[4].data.push(adjustedHOA)
+            if (i === 1) {
+                donutChartData.datasets[0].data.push(parseFloat(interest).toFixed(2))
+                donutChartData.datasets[0].data.push(parseFloat(principal).toFixed(2))
+                donutChartData.datasets[0].data.push(parseFloat(adjustedTax).toFixed(2))
+                donutChartData.datasets[0].data.push(parseFloat(adjustedHomeInsurance).toFixed(2))
+                donutChartData.datasets[0].data.push(parseFloat(adjustedHOA).toFixed(2))
+                donutChartData.datasets[0].data.push(parseFloat(pmi).toFixed(2))
+            }
             if (balance / hv > 0.8) {
                 chartData.datasets[5].data.push(pmi)
                 totalPMI += pmi
@@ -138,18 +193,36 @@ export default class Calculate extends Component {
             // MORTGAGE TABLE
             mortgageTable.push([i, interest, principal, balance])
         }
+        // Display Charts
+        let chartDisplay
+        if (this.state.chart === 'line') {
+            chartDisplay = <LineChart data={chartData} />
+        }
+        else if (this.state.chart === 'donut') {
+            chartDisplay = <DonutChart data={donutChartData} />
+        }
 
-        // console.log(mortgageTable)
+
         return (
             // Section A
             <section className="section-a ">
                 {/* Chart */}
-                <div className="chart-container hide-on-med-and-down">
-                    <Chart data={chartData} />
-                    {/* <h1>h</h1> */}
+                <div className="chart-container">
+
+                    {chartDisplay}
+
+
                     <div className="btn-group">
-                        <button class="">Bar</button>
-                        <button>Donut</button>
+                        <button id="line" onClick={this.handleClick}>
+                            {/* <a>test</a> */}
+                            <i id="line"className="material-icons">timeline</i>
+
+
+                            {/* <p >timeline</p> */}
+                        </button>
+                        <button id="donut" onClick={this.handleClick}>
+                        <i id="donut" className="material-icons">donut_large</i>
+                        </button>
                     </div>
 
                 </div>
@@ -157,14 +230,14 @@ export default class Calculate extends Component {
                 <div className="outputs">
                     <div className="box-1 input-container">
                         <label>Total Monthly Payment: </label>
-                        <div className="input-group">
+                        <div className="input-group readOnly">
                             <p>$</p>
                             <input type="number" value={parseFloat(total).toFixed(2)} readOnly></input>
                         </div>
                     </div>
                     <div className="input-container">
                         <label>Mortgage Payment: </label>
-                        <div className="input-group">
+                        <div className="input-group readOnly">
                             <p>$</p>
                             <input type="number" value={parseFloat(payment).toFixed(2)} readOnly></input>
                         </div>
@@ -172,35 +245,35 @@ export default class Calculate extends Component {
 
                     <div className="input-container">
                         <label>Tax Payment: </label>
-                        <div className="input-group">
+                        <div className="input-group readOnly">
                             <p>$</p>
                             <input type="number" value={parseFloat(tax).toFixed(2)} readOnly></input>
                         </div>
                     </div>
                     <div className="input-container">
                         <label>Home Insurance Payment: </label>
-                        <div className="input-group">
+                        <div className="input-group readOnly">
                             <p>$</p>
                             <input type="number" value={parseFloat(homeInsurance).toFixed(2)} readOnly></input>
                         </div>
                     </div>
                     <div className="input-container">
                         <label>Total PMI Paid: </label>
-                        <div className="input-group">
+                        <div className="input-group readOnly">
                             <p>$</p>
                             <input type="number" value={parseFloat(totalPMI).toFixed(2)} readOnly></input>
                         </div>
                     </div>
                     <div className="input-container">
                         <label>Total Interest Paid: </label>
-                        <div className="input-group">
+                        <div className="input-group readOnly">
                             <p>$</p>
                             <input type="number" value={parseFloat(totalInterest).toFixed(2)} readOnly></input>
                         </div>
                     </div>
                     <div className="input-container">
                         <label>Total Interest Paid: </label>
-                        <div className="input-group">
+                        <div className="input-group readOnly">
                             <p>$</p>
                             <input type="number" value={parseFloat(totalInterest).toFixed(2)} readOnly></input>
                         </div>

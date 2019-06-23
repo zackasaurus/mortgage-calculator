@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Bar, Line, Pie } from 'react-chartjs-2';
-export default class Chart extends Component {
+import {Line} from 'react-chartjs-2';
+export default class LineChart extends Component {
     // constructor(props){
     //     super(props);
     //     this.state = {
@@ -9,7 +9,6 @@ export default class Chart extends Component {
     // }
     render() {
         return (
-            // console.log(this.state)
             <div className="chart">
                 {/* CHART COMPONENT */}
                 <Line
@@ -17,8 +16,8 @@ export default class Chart extends Component {
                     data={this.props.data}
                     options={{
                         responsive: true,
-                        maintainAspectRatio: true,
-                        aspectRatio: 1,
+                        maintainAspectRatio: false,
+                        aspectRatio: 0.8,
                         elements: {
                             point: {
                                 radius: 0

@@ -4,6 +4,7 @@
 @import 'components/inputs';
 @import 'components/button';
 @import 'components/output_section';
+@import 'components/input_section';
 
 * {
     margin: 0;
@@ -11,7 +12,7 @@
 }
 
 body{
-    background-color: #eceff1;
+    background-color: $color-blue-gray-1;
     font-family: 'Roboto'
 }
 
@@ -40,26 +41,8 @@ p {
 
 
 
-.container-outputs {
-    margin: 0 15%;
-    position: relative;
-    margin-top: -45vh;
-    background-color: #fafafa;
-    padding: 0 4%;
-    z-index: 10;
-    
-}
-.input__list {
-    background-color: #fafafa;
-
-}
 
 
-.container-inputs{
-    position: relative;
-    margin: 0 15%;
-    padding: 0 4%;
-    // padding-top: 1rem;
-    z-index: 10;
-}
+
+
 

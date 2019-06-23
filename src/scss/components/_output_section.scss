@@ -1,18 +1,57 @@
-.section-a{
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-// overflow: hidden;
-min-width: 0;
-margin-bottom: 2rem;
-padding: 1rem 0rem;
+.container-outputs {
+    margin: 0 5%;
+    position: relative;
+    margin-top: -30vh;
+    background-color: #F2F3F4;
+    padding: 0 4%;
+    z-index: 10;
+
 }
-.chart-container{
-    
+
+.section-a {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    // grid-template-columns: 2fr 1fr;
+    // overflow: hidden;
+    min-width: 0;
+    margin-bottom: 2rem;
+    padding: 1rem 0rem;
+}
+
+@media(min-width:700px) {
+    .section-a {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .container-outputs {
+        margin: 0 10%;
+        margin-top: -45vh;
+    }
+
+}
+
+@media(min-width:1000px) {
+    .section-a {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .container-outputs {
+        margin: 0 15%;
+        margin-top: -45vh;
+    }
+
+}
+
+.chart-container {
+
     // height: 100%;
     // width: 100%;
     overflow: hidden;
     min-width: 0;
     padding: .75rem;
+
     // border: 1px solid black;
     .chart {
         position: relative;
@@ -20,26 +59,37 @@ padding: 1rem 0rem;
         margin: 0rem;
         overflow: hidden;
         min-width: 0;
-    }  
+    }
 }
-.outputs{
+
+.outputs {
     // background-color: $color-gray-2;
     padding: 1.5rem .75rem;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     // grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     grid-auto-rows: minmax(min-content, max-content);
     grid-gap: 1.5rem;
     // margin: 5
     // border: 1px solid black;
 }
-.box-1{
-    // border: 1px solid black;
-    grid-column: 1/3;
+
+@media(min-width:1000px) {
+    .outputs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
 }
+
+.box-1 {
+    // border: 1px solid black;
+    // grid-column: 1/3;
+}
+
 // .col, .xl6{
 //     padding: 0rem;
 // }
-.row .col{
+.row .col {
     padding: .75rem;
 }
